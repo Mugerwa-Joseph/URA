@@ -1,0 +1,177 @@
+S<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+    <h2 class="text-center">URA TAX PAYERS PORTAL</h2>
+
+    <div class="container">
+        <div class="jumbotron"> 
+            <div class="row text-center">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">REGISTER TAX PAYER</h5>
+                      <p class="card-text">To register a tax payer, follow the link below.</p>
+                      <a href="rTpayer.html" class="btn btn-primary">REGISTER PAYER</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ASSET REGISTRATION</h5>
+                      <p class="card-text">To register an Asset, follow the link below:</p>
+                      <a href="rAsset.html" class="btn btn-primary">REGISTER ASSET</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron"> 
+            <div class="row text-center">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">PAY INCOME TAX</h5>
+                      <p class="card-text">To Pay Income Tax, follow the link below.</p>
+                      <a href="payTax.html" class="btn btn-primary">PAY INCOME TAX</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ASSET TRANSFER</h5>
+                      <p class="card-text">To transfer an Asset, follow the link below:</p>
+                      <a href="aTransfer.html" class="btn btn-primary">TRANSFER ASSET</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <h2 class="text-center">URA TAX PAYERS PORTAL</h2>
+
+    <div class="container">
+        <div class="jumbotron"> 
+            <div class="row text-center">
+                <!-- Register Tax Payer Form -->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">REGISTER TAX PAYER</h5>
+                            <p class="card-text">To register a tax payer, fill out the form below:</p>
+                            <form action="process_register_tax_payer.php" method="post">
+                                <!-- Add your form fields here -->
+                                <label for="full_name">Full Name:</label>
+                                <input type="text" id="full_name" name="full_name" required>
+                                
+                                <!-- Add more fields as needed -->
+
+                                <button type="submit" class="btn btn-primary">REGISTER PAYER</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Asset Form -->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ASSET REGISTRATION</h5>
+                            <p class="card-text">To register an asset, fill out the form below:</p>
+                            <form action="process_register_asset.php" method="post">
+                                <!-- Add your form fields here -->
+                                <label for="asset_name">Asset Name:</label>
+                                <input type="text" id="asset_name" name="asset_name" required>
+                                
+                                <!-- Add more fields as needed -->
+
+                                <button type="submit" class="btn btn-primary">REGISTER ASSET</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+        <div class="jumbotron"> 
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">REGISTER TAX PAYER</h5>
+                            <p class="card-text">To register a tax payer, fill out the form below:</p>
+                            <form id="registerTaxPayerForm">
+                                <!-- Add your form fields here -->
+                                <label for="full_name">Full Name:</label>
+                                <input type="text" id="full_name" name="full_name" required>
+                                
+                                <!-- Add more fields as needed -->
+
+                                <button type="button" class="btn btn-primary" onclick="registerTaxPayer()">REGISTER PAYER</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ... (other cards) ... -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap and other scripts if needed -->
+
+    <script>
+        function registerTaxPayer() {
+            // Code to handle form submission asynchronously using AJAX
+            // You can use Fetch API or other libraries like Axios or jQuery.ajax
+
+            // Example using Fetch API
+            fetch('/process_register_tax_payer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    full_name: document.getElementById('full_name').value,
+                    // Include other form fields here
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Tax payer registered successfully. TIN: ' + data.tin);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    <!-- Add your scripts and additional HTML here -->
+
+</body>
+</html>
