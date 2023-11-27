@@ -10,16 +10,101 @@
 </head>
 <body>
     <h2 class="text-center"> ASSET TRANSFER</h2>
-    <div class="container">
-        <div class="jumbotron">
-            <div class="row">
-                
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate procedual form to facilitate the transfer of an asset. <small>Remember: </small> All we need is a field where to enter the Asset code <input type="text" name="" id="" placeholder="ASSET CODE">, the name of the asset is returned with a field of <br><br> TRANSFER TO: <input type="text" name="" id="" placeholder="NEW OWNER'S TIN">. A confirmation alert containing the asset name, name of current owner, and name of the new owner is displayed with a confirmation button. 
-                    <p>Upon confirmation, the asset owner must be updated accordingly in the data base and redirected back to the home page (index.html).</p></p>
-            </div>
-        </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Transfer Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Asset Transfer Form</h2>
+
+    <label for="assetNumber">Asset Number:</label>
+    <input type="text" id="assetNumber" placeholder="Enter asset number" onblur="fetchAssetDetails()">
+
+    <div id="assetDetails" style="display: none;">
+        <label for="assetName">Asset Name:</label>
+        <span id="assetNameDisplay"></span>
     </div>
+
+    <label for="newOwnerTIN">New Owner's TIN:</label>
+    <input type="text" id="newOwnerTIN" placeholder="Enter new owner's TIN">
+
+    <button onclick="confirmTransfer()">Confirm Transfer</button>
+
+    <script>
+        function fetchAssetDetails() {
+            // Simulate fetching asset details from the server/database based on the asset number
+            var assetNumber = document.getElementById('assetNumber').value;
+            // Assume asset details are retrieved as an object with 'name' property
+            var assetDetails = {
+                name: "Sample Asset Name"
+            };
+
+            // Display the asset name
+            document.getElementById('assetNameDisplay').textContent = assetDetails.name;
+
+            // Show the asset details section
+            document.getElementById('assetDetails').style.display = 'block';
+        }
+
+        function confirmTransfer() {
+            var assetNumber = document.getElementById('assetNumber').value;
+            var assetName = document.getElementById('assetNameDisplay').textContent;
+            var currentOwner = "John Doe"; // Replace with the current owner's name (fetch from the database)
+            var newOwnerTIN = document.getElementById('newOwnerTIN').value;
+
+            var confirmationMessage = "Asset Name: " + assetName + "\nCurrent Owner: " + currentOwner + "\nNew Owner TIN: " + newOwnerTIN;
+
+            var isConfirmed = confirm(confirmationMessage);
+
+            if (isConfirmed) {
+                // Here, you would typically make a server-side request to update the database with the new owner.
+                // After a successful update, redirect to the home page (index.html).
+                alert("Transfer confirmed. Database updated successfully.");
+                window.location.href = "index.html";
+            } else {
+                alert("Transfer canceled.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
 
     <div class="row text-center">
         <a class="btn btn-primary" href="index.html">BACK HOME</a>

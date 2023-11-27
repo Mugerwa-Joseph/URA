@@ -10,13 +10,91 @@
 </head>
 <body>
     <h2 class="text-center"> ASSET REGISTRATION</h2>
-    <div class="container">
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-md-8">
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate form to capture the asset's details as indicated in the description. Upon successfull registration, an asset code matching the criteria must be generated and communicated to the user in form of an alert.</p>
-                </div>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
+
+  <form id="assetForm">
+    <label for="assetName">Asset Name:</label>
+    <input type="text" id="assetName" required>
+
+    <label for="estimatedCost">Estimated Cost:</label>
+    <input type="number" id="estimatedCost" required>
+
+    <label for="ownersTIN">Owner's TIN:</label>
+    <input type="text" id="ownersTIN" required>
+
+    <label for="assetType">Type (Fixed/Movable):</label>
+    <select id="assetType" required>
+      <option value="Fixed">Fixed</option>
+      <option value="Movable">Movable</option>
+    </select>
+
+    <button type="button" onclick="registerAsset()">Register Asset</button>
+  </form>
+
+  <script>
+    function registerAsset() {
+      // Get form values
+      const assetName = document.getElementById('assetName').value;
+      const estimatedCost = document.getElementById('estimatedCost').value;
+      const ownersTIN = document.getElementById('ownersTIN').value;
+      const assetType = document.getElementById('assetType').value;
+
+      // Generate asset number
+      const assetNumber = generateAssetNumber(ownersTIN);
+
+      // Display alert with the generated asset number
+      alert(`Asset registered successfully!\nAsset Number: ${assetNumber}`);
+    }
+
+    function generateAssetNumber(ownersTIN) {
+      // Extract the last three digits of the owner's TIN
+      const lastThreeDigits = ownersTIN.slice(-3);
+
+      // Generate a random alphabet
+      const alphabet = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+
+      // Concatenate the alphabet and last three digits to form the asset number
+      const assetNumber = `${alphabet}${Math.floor(Math.random() * 100)}${lastThreeDigits}`;
+
+      return assetNumber;
+    }
+  </script>
+<br><br>
+<br><br>
+
+
                 <div class="col-md-4">
                         <form class="form-inline pt-10">
                           <input class="form-control mr-sm-2" type="search" placeholder="ENTER ASSET CODE" aria-label="Search"> <br><br>
@@ -26,7 +104,10 @@
             </div>
         </div>
     </div>
-
+<br><br>
+<br><br>
+<br><br>
+<br><br>
     <div class="container">
         <div class="jumbotron">
             <h3 class="text-center">REGISTERED ASSETS</h3>

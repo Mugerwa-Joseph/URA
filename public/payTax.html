@@ -10,14 +10,79 @@
 </head>
 <body>
     <h2 class="text-center"> PAY INCOME TAX</h2>
-    <div class="container">
-        <div class="jumbotron">
-            <div class="row">
-                
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate form to facilitate the payment of Income tax. <small>Remember: </small> All we need is a field where to enter the total profits made, then 18% of the profits is returned as the tax payable. A field requesting for the TIN is returned, TIN entered, and then the pay button is clicked to complete the process.</p>
-                    <p>Upon successful payment, a thank you alert containing the payer's name should be displayed.</p>
-            </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<form id="incomeTaxForm">
+    <h2>Income Tax Payment Form</h2>
+
+    <label for="tin">Tax Identification Number (TIN):</label>
+    <input type="text" id="tin" name="tin" required>
+
+    <label for="profits">Total Profits:</label>
+    <input type="number" id="profits" name="profits" required>
+
+    <button type="button" onclick="calculateTax()">Calculate Tax</button>
+
+    <label for="taxPayable">Tax Payable (18% of Profits):</label>
+    <input type="text" id="taxPayable" name="taxPayable" readonly>
+
+    <button type="button" onclick="processPayment()">Pay</button>
+</form>
+
+<script>
+    function calculateTax() {
+        var profits = parseFloat(document.getElementById('profits').value);
+        if (isNaN(profits)) {
+            alert("Please enter a valid profit amount.");
+            return;
+        }
+
+        var taxPayable = profits * 0.18;
+        document.getElementById('taxPayable').value = taxPayable.toFixed(2);
+    }
+
+    function processPayment() {
+        var tin = document.getElementById('tin').value;
+        var taxPayable = document.getElementById('taxPayable').value;
+
+        if (!tin || !taxPayable) {
+            alert("Please calculate tax first.");
+            return;
+        }
+
+        // Simulate a payment process (you might want to integrate a real payment gateway)
+        var isPaymentSuccessful = confirm("Do you want to proceed with the payment?");
+        
+        if (isPaymentSuccessful) {
+            // Display a thank you alert with the payer's name (you might want to fetch the name from a database)
+            alert("Thank you, taxpayer with TIN " + tin + "!");
+        } else {
+            alert("Payment process canceled.");
+        }
+    }
+</script>
+
+</body>
+</html>
+
         </div>
     </div>
 
