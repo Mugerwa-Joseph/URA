@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Asset</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <h2 class="text-center"> ASSET REGISTRATION</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-8">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Asset Registration</title>
+                        <script>
+                          // Function to generate an asset code based on entered details
+                          function generateAssetCode() {
+                            // Dummy algorithm for illustration purposes
+                            // In a real application, you should use a more secure method to generate asset codes
+                            const assetType = document.getElementById('assetType').value;
+                            const serialNumber = document.getElementById('serialNumber').value;
+                            const assetCode = assetType.slice(0, 3).toUpperCase() + serialNumber.slice(-4);
+                            
+                            // Display the generated asset code to the user
+                            alert(`Your Asset Code is: ${assetCode}`);
+                          }
+                        </script>
+                      </head>
+                      <body>
+                        <h2>Asset Registration Form</h2>
+                        <form>
+                          <label for="assetType">Asset Type:</label>
+                          <input type="text" id="assetType" name="assetType" required><br>
+                      
+                          <label for="serialNumber">Serial Number:</label>
+                          <input type="text" id="serialNumber" name="serialNumber" required><br>
+                      
+                          <label for="purchaseDate">Purchase Date:</label>
+                          <input type="date" id="purchaseDate" name="purchaseDate" required><br>
+                      
+                          <label for="purchasePrice">Purchase Price:</label>
+                          <input type="number" id="purchasePrice" name="purchasePrice" min="0" required><br>
+                      
+                          <button type="button" onclick="generateAssetCode()">Register</button>
+                        </form>
+                </div>
+                <div class="col-md-4">
+                        <form class="form-inline pt-10">
+                          <input class="form-control mr-sm-2" type="search" placeholder="ENTER ASSET CODE" aria-label="Search"> <br><br>
+                          <button class="btn btn-success" type="submit">SEARCH ASSET</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h3 class="text-center">REGISTERED ASSETS</h3>
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <a class="btn btn-primary" href="index.html">BACK HOME</a>
+    </div>
+</body>
+</html>
